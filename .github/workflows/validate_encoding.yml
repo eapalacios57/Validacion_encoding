@@ -12,4 +12,4 @@ jobs:
       - name : validaciones
         run: ls -la
       - name: list the directory
-        run: git show --pretty="format:" --name-only
+        run: for i in git show --pretty="format:" --name-only;
