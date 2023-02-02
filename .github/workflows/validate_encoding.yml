@@ -8,7 +8,7 @@ jobs:
     
     steps:
       - name : checkoutcode
-        run: actions/checkout@v3
+        uses: actions/checkout@v3
       - name : validaciones
         run: ls -la
       - name: list the directory
