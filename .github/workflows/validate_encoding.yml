@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name : checkoutcode
-        uses: actions/checkout@$BRANCH_NAME
+        uses: actions/checkout@${{ env.BRANCH_NAME }}
         with:
           ref: ${{ github.ref }}
       - name : file list
