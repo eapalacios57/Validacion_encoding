@@ -6,7 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name : checkoutcode
-        uses: actions/checkout@${GITHUB_REF}
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
       - name : file list
         run: ls -la
       - name: Validate Encoding in Files
