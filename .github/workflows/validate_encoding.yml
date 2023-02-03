@@ -1,5 +1,7 @@
 name: Validate-Encoding
 on: ['pull_request']
+env:
+ BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -7,6 +9,6 @@ jobs:
       - name : checkoutcode
         uses: actions/checkout@v1
       - name : file list
-        run: git branch --show-current
+        run: git checkout ${{ BRANCH_NAME }}
       - name: Validate Encoding in Files
         run: git show --pretty="format:" --name-only
