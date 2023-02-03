@@ -1,11 +1,16 @@
 name: Validate-Encoding
 on: ['pull_request']
-
+env:
+ BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name : checkoutcode
-        uses: actions/checkout@v3
-      - name: Validate Encoding in Files
+        uses: actions/checkout@v1
+      - name : file list
+        run: git checkout ${{ env.BRANCH_NAME }}
+      - name: format encoding
+        run: git show --pretty="format:" --name-only
+      - name:  Validate Encoding in Files
         run: for i in $(git show --pretty="format:" --name-only);do if [[ -e $i &&  $(file -b --mime-encoding $i) !=  us-ascii ]]; then echo "$i es archivo sin utf-8" &&  bash -eo pipefail {0}; fi;done;
