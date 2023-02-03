@@ -2,4 +2,4 @@ informacion de nuevas dependencias
 configuracion json <div class="d-none d-sm-block">
     
 </div>
-
+<i class="fa fa-hand-paper-o" aria-hidden="true"></i>
