@@ -10,4 +10,4 @@ jobs:
       - name : file list
         run: ls -la
       - name: Validate Encoding in Files
-        run: git show --pretty="format:" --name-only
+        run: git branch
