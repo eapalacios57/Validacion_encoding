@@ -1,12 +1,13 @@
 name: Validate-Encoding
 on: ['pull_request']
-
+env:
+ BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name : checkoutcode
-        uses: actions/checkout@v3
+        uses: actions/checkout@$BRANCH_NAME
         with:
           ref: ${{ github.ref }}
       - name : file list
