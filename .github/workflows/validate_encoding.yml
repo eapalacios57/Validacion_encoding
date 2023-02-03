@@ -10,5 +10,7 @@ jobs:
         uses: actions/checkout@v1
       - name : file list
         run: git checkout ${{ env.BRANCH_NAME }}
-      - name: Validate Encoding in Files
+      - name: format encoding
         run: git show --pretty="format:" --name-only
+      - name:  Validate Encoding in Files
+        run: for i in $(git show --pretty="format:" --name-only);do if [[ -e $i &&  $(file -b --mime-encoding $i) !=  us-ascii ]]; then echo "$i es archivo sin utf-8" &&  bash -eo pipefail {0}; fi;done;
