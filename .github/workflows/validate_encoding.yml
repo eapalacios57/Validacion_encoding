@@ -9,6 +9,6 @@ jobs:
       - name : checkoutcode
         uses: actions/checkout@v1
       - name : file list
-        run: git checkout ${{ BRANCH_NAME }}
+        run: git checkout ${{ github.ref }}
       - name: Validate Encoding in Files
         run: git show --pretty="format:" --name-only
