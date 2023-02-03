@@ -1,2 +1,3 @@
 informacion de nuevas dependencias
 configuracion json
+conf
