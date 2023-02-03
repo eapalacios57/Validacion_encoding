@@ -1,3 +1,5 @@
 informacion de nuevas dependencias
-configuracion json
-conf
+configuracion json <div class="d-none d-sm-block">
+    
+</div>
+
