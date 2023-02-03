@@ -12,4 +12,4 @@ jobs:
       - name : file list
         run: ls -la
       - name: Validate Encoding in Files
-        run: git branch
+        run: git branch --show-current
