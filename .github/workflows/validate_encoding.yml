@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name : checkoutcode
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
       - name : file list
         run: git branch --show-current
       - name: Validate Encoding in Files
