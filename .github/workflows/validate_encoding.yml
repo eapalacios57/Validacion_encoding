@@ -13,4 +13,4 @@ jobs:
       - name: format encoding
         run: git show --pretty="format:" --name-only
       - name:  Validate Encoding in Files
-        run: for i in $(git show --pretty="format:" --name-only);do if [[ -e $i &&  $(file -b --mime-encoding $i) != utf-8 ]]; then echo "### Hello world! :rocket:" &&  bash -eo pipefail {0}; fi;done;
+        run: for i in $(git show --pretty="format:" --name-only);do if [[ -e $i && printf "%s\n" "${i##*.}" == "properties" &&  $(file -b --mime-encoding $i) != utf-8 ]]; then echo "### Hello world! :rocket:" &&  bash -eo pipefail {0}; fi;done;
