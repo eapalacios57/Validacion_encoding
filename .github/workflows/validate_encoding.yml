@@ -6,11 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name : checkoutcode
+      - name : CheckoutCode
         uses: actions/checkout@v1
       - name : file list
         run: git checkout ${{ env.BRANCH_NAME }}
-      - name: format encoding
-        run: git show --pretty="format:" --name-only
       - name:  Validate Encoding in Files
-        run: for i in $(git show --pretty="format:" --name-only);do if [[ -e $i && $(printf "${i##*.}") = "propierties" &&  $(file -b --mime-encoding $i) !=  utf-8 ]]; then echo "$i es archivo sin utf-8" &&  bash -eo pipefail {0}; fi;done;
+        run: for i in $(git show --pretty="format:" --name-only);do if [[ -e $i && $(printf "${i##*.}") = "propierties" &&  $(file -b --mime-encoding $i) !=  iso-8859-1 ]]; then echo "$i es archivo sin iso-8859-1" &&  bash -eo pipefail {0}; fi;done;
